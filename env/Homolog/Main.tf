@@ -4,7 +4,7 @@ module "homolog" {
     nome_repositorio = "homolog"
     cargoIAM = "homolog"
     ambiante = "homolog"
-    imagem="leonardosartorello/go_ci:22"
+    imagem="greglixandraõ/go_ci:latest"
 }
 
 output "IP_alb" {
