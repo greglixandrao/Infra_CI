@@ -32,9 +32,17 @@ resource "aws_ecs_task_definition" "Go-API" {
             "hostPort"      = 8000
           }
         ]
+		"logConfiguration": {
+          "logDriver": "awslogs",
+          "options": {
+            "awslogs-group": "/aws/ecs/homolog",
+            "awslogs-region": "us-west-2",
+            "awslogs-stream-prefix": "api-go"
+          }
+        }
         "environment"= [
           {
-            "name"  = "HOST"
+            "name"  = "DBHOST"
             "value" = tostring(aws_db_instance.default.address)
           },
           {
@@ -42,11 +50,11 @@ resource "aws_ecs_task_definition" "Go-API" {
             "value" = tostring(aws_db_instance.default.port)
           },
           {
-            "name"  = "USER"
+            "name"  = "DBUSER"
             "value" = tostring(aws_db_instance.default.username)
           },
           {
-            "name"  = "PASSWORD"
+            "name"  = "DBPASSWORD"
             "value" = "rootroot"
           },
           {
