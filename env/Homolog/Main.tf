@@ -1,10 +1,10 @@
 module "homolog" {
-    source = "../../infra"
+  source = "../../infra"
 
-    nome_repositorio = "homolog"
-    cargoIAM = "homolog"
-    ambiante = "homolog"
-    imagem="greglixandrao/go_ci:latest"
+  nome_repositorio = "homolog"
+  cargoIAM         = "homolog"
+  ambiante         = "homolog"
+  imagem           = "greglixandrao/go_ci:latest"
 }
 
 output "IP_alb" {
